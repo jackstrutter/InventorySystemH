@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="inventoryModelStoreContainer" CdmEntityContainer="inventoryContext">
+    <EntitySetMapping Name="appUsers">
+      <EntityTypeMapping TypeName="inventoryModel.appUsers">
+        <MappingFragment StoreEntitySet="appUsers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userType_id" ColumnName="userType_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assignments">
+      <EntityTypeMapping TypeName="inventoryModel.assignments">
+        <MappingFragment StoreEntitySet="assignments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="deviceType_id" ColumnName="deviceType_id" />
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="computer_id" ColumnName="computer_id" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="proyect_id" ColumnName="proyect_id" />
+          <ScalarProperty Name="responsibleA_id" ColumnName="responsibleA_id" />
+          <ScalarProperty Name="responsibleR_id" ColumnName="responsibleR_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="brands">
+      <EntityTypeMapping TypeName="inventoryModel.brands">
+        <MappingFragment StoreEntitySet="brands">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="inventoryModel.companies">
+        <MappingFragment StoreEntitySet="companies">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="company" ColumnName="company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="computers">
+      <EntityTypeMapping TypeName="inventoryModel.computers">
+        <MappingFragment StoreEntitySet="computers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="deviceType_id" ColumnName="deviceType_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="model_id" ColumnName="model_id" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="serialNumber" ColumnName="serialNumber" />
+          <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
+          <ScalarProperty Name="assignment_id" ColumnName="assignment_id" />
+          <ScalarProperty Name="proyect_id" ColumnName="proyect_id" />
+          <ScalarProperty Name="OperatingSystem_id" ColumnName="OperatingSystem_id" />
+          <ScalarProperty Name="processor_id" ColumnName="processor_id" />
+          <ScalarProperty Name="ram" ColumnName="ram" />
+          <ScalarProperty Name="hdd" ColumnName="hdd" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="responsible_id" ColumnName="responsible_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="degrees">
+      <EntityTypeMapping TypeName="inventoryModel.degrees">
+        <MappingFragment StoreEntitySet="degrees">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="degrees1" ColumnName="degrees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="devices">
+      <EntityTypeMapping TypeName="inventoryModel.devices">
+        <MappingFragment StoreEntitySet="devices">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="deviceType_id" ColumnName="deviceType_id" />
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="model_id" ColumnName="model_id" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="serialNumber" ColumnName="serialNumber" />
+          <ScalarProperty Name="stockNumber" ColumnName="stockNumber" />
+          <ScalarProperty Name="assignment_id" ColumnName="assignment_id" />
+          <ScalarProperty Name="proyect_id" ColumnName="proyect_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="responsible_id" ColumnName="responsible_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deviceTypes">
+      <EntityTypeMapping TypeName="inventoryModel.deviceTypes">
+        <MappingFragment StoreEntitySet="deviceTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="inventoryModel.locations">
+        <MappingFragment StoreEntitySet="locations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="models">
+      <EntityTypeMapping TypeName="inventoryModel.models">
+        <MappingFragment StoreEntitySet="models">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="operatingSystems">
+      <EntityTypeMapping TypeName="inventoryModel.operatingSystems">
+        <MappingFragment StoreEntitySet="operatingSystems">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="processors">
+      <EntityTypeMapping TypeName="inventoryModel.processors">
+        <MappingFragment StoreEntitySet="processors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="processor" ColumnName="processor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proyects">
+      <EntityTypeMapping TypeName="inventoryModel.proyects">
+        <MappingFragment StoreEntitySet="proyects">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="proyect" ColumnName="proyect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="inventoryModel.states">
+        <MappingFragment StoreEntitySet="states">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="inventoryModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="administrative_number" ColumnName="administrative number" />
+          <ScalarProperty Name="degree_id" ColumnName="degree_id" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userTypes">
+      <EntityTypeMapping TypeName="inventoryModel.userTypes">
+        <MappingFragment StoreEntitySet="userTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

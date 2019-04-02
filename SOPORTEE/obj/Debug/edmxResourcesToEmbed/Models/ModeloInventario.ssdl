@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="inventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="appUsers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="int" Nullable="false" />
+    <Property Name="userType_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="assignments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="deviceType_id" Type="int" Nullable="false" />
+    <Property Name="device_id" Type="int" />
+    <Property Name="computer_id" Type="int" />
+    <Property Name="state_id" Type="int" Nullable="false" />
+    <Property Name="proyect_id" Type="int" Nullable="false" />
+    <Property Name="responsibleA_id" Type="int" Nullable="false" />
+    <Property Name="responsibleR_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="brands">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="companies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="computers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deviceType_id" Type="int" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="brand_id" Type="int" Nullable="false" />
+    <Property Name="model_id" Type="int" Nullable="false" />
+    <Property Name="location_id" Type="int" Nullable="false" />
+    <Property Name="state_id" Type="int" Nullable="false" />
+    <Property Name="serialNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="stockNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="assignment_id" Type="int" />
+    <Property Name="proyect_id" Type="int" Nullable="false" />
+    <Property Name="OperatingSystem_id" Type="int" Nullable="false" />
+    <Property Name="processor_id" Type="int" Nullable="false" />
+    <Property Name="ram" Type="int" Nullable="false" />
+    <Property Name="hdd" Type="int" Nullable="false" />
+    <Property Name="comments" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="responsible_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="degrees">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="degrees" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="devices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deviceType_id" Type="int" Nullable="false" />
+    <Property Name="brand_id" Type="int" Nullable="false" />
+    <Property Name="model_id" Type="int" Nullable="false" />
+    <Property Name="location_id" Type="int" Nullable="false" />
+    <Property Name="state_id" Type="int" Nullable="false" />
+    <Property Name="serialNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="stockNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="assignment_id" Type="int" />
+    <Property Name="proyect_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="comments" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="responsible_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deviceTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="locations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="location" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="models">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand_id" Type="int" />
+    <Property Name="model" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="operatingSystems">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OperatingSystem" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="processors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="processor" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="proyects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proyect" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="states">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="administrative number" Type="int" Nullable="false" />
+    <Property Name="degree_id" Type="int" Nullable="false" />
+    <Property Name="location_id" Type="int" Nullable="false" />
+    <Property Name="company_id" Type="int" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="comments" Type="varchar" MaxLength="255" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_assignmentComputers">
+    <End Role="assignments" Type="Self.assignments" Multiplicity="0..1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assignments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="assignment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_assignmentDevices">
+    <End Role="assignments" Type="Self.assignments" Multiplicity="0..1" />
+    <End Role="devices" Type="Self.devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assignments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="assignment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_brandComputers">
+    <End Role="brands" Type="Self.brands" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="brands">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_brandDevices">
+    <End Role="brands" Type="Self.brands" Multiplicity="1" />
+    <End Role="devices" Type="Self.devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="brands">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_brands">
+    <End Role="brands" Type="Self.brands" Multiplicity="0..1" />
+    <End Role="models" Type="Self.models" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="brands">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="models">
+        <PropertyRef Name="brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_companyUsers">
+    <End Role="companies" Type="Self.companies" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="companies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_degreeUsers">
+    <End Role="degrees" Type="Self.degrees" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="degrees">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="degree_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_deviceTypeAssignments">
+    <End Role="deviceTypes" Type="Self.deviceTypes" Multiplicity="1" />
+    <End Role="assignments" Type="Self.assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignments">
+        <PropertyRef Name="deviceType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_locationComputers">
+    <End Role="locations" Type="Self.locations" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locations">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="location_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_locationDevices">
+    <End Role="locations" Type="Self.locations" Multiplicity="1" />
+    <End Role="devices" Type="Self.devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locations">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="location_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_locationUsers">
+    <End Role="locations" Type="Self.locations" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locations">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="location_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_modelComputers">
+    <End Role="models" Type="Self.models" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="models">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="model_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_modelDevices">
+    <End Role="models" Type="Self.models" Multiplicity="1" />
+    <End Role="devices" Type="Self.devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="models">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="model_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_proyectAssignments">
+    <End Role="proyects" Type="Self.proyects" Multiplicity="1" />
+    <End Role="assignments" Type="Self.assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignments">
+        <PropertyRef Name="proyect_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_proyectComputers">
+    <End Role="proyects" Type="Self.proyects" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="proyect_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_proyectDevices">
+    <End Role="proyects" Type="Self.proyects" Multiplicity="1" />
+    <End Role="devices" Type="Self.devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="proyect_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_proyectOpSys">
+    <End Role="operatingSystems" Type="Self.operatingSystems" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operatingSystems">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="OperatingSystem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_proyectProcessors">
+    <End Role="processors" Type="Self.processors" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="processors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="processor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_responsibleAAssignments">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="assignments" Type="Self.assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignments">
+        <PropertyRef Name="responsibleA_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_responsibleComputers">
+    <End Role="appUsers" Type="Self.appUsers" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="appUsers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="responsible_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_responsibleDevices">
+    <End Role="appUsers" Type="Self.appUsers" Multiplicity="1" />
+    <End Role="devices" Type="Self.devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="appUsers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="responsible_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_responsibleRAssignments">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="assignments" Type="Self.assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignments">
+        <PropertyRef Name="responsibleR_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_stateAssignments">
+    <End Role="states" Type="Self.states" Multiplicity="1" />
+    <End Role="assignments" Type="Self.assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="states">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignments">
+        <PropertyRef Name="state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_stateComputers">
+    <End Role="states" Type="Self.states" Multiplicity="1" />
+    <End Role="computers" Type="Self.computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="states">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="computers">
+        <PropertyRef Name="state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_stateDevices">
+    <End Role="states" Type="Self.states" Multiplicity="1" />
+    <End Role="devices" Type="Self.devices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="states">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="devices">
+        <PropertyRef Name="state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_userAssignments">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="assignments" Type="Self.assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignments">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_userTypeUsers">
+    <End Role="userTypes" Type="Self.userTypes" Multiplicity="1" />
+    <End Role="appUsers" Type="Self.appUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="appUsers">
+        <PropertyRef Name="userType_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="inventoryModelStoreContainer">
+    <EntitySet Name="appUsers" EntityType="Self.appUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="assignments" EntityType="Self.assignments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="brands" EntityType="Self.brands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="companies" EntityType="Self.companies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="computers" EntityType="Self.computers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="degrees" EntityType="Self.degrees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="devices" EntityType="Self.devices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="deviceTypes" EntityType="Self.deviceTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="models" EntityType="Self.models" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="operatingSystems" EntityType="Self.operatingSystems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="processors" EntityType="Self.processors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="proyects" EntityType="Self.proyects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="states" EntityType="Self.states" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userTypes" EntityType="Self.userTypes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_assignmentComputers" Association="Self.fk_assignmentComputers">
+      <End Role="assignments" EntitySet="assignments" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_assignmentDevices" Association="Self.fk_assignmentDevices">
+      <End Role="assignments" EntitySet="assignments" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_brandComputers" Association="Self.fk_brandComputers">
+      <End Role="brands" EntitySet="brands" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_brandDevices" Association="Self.fk_brandDevices">
+      <End Role="brands" EntitySet="brands" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_brands" Association="Self.fk_brands">
+      <End Role="brands" EntitySet="brands" />
+      <End Role="models" EntitySet="models" />
+    </AssociationSet>
+    <AssociationSet Name="fk_companyUsers" Association="Self.fk_companyUsers">
+      <End Role="companies" EntitySet="companies" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_degreeUsers" Association="Self.fk_degreeUsers">
+      <End Role="degrees" EntitySet="degrees" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_deviceTypeAssignments" Association="Self.fk_deviceTypeAssignments">
+      <End Role="deviceTypes" EntitySet="deviceTypes" />
+      <End Role="assignments" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_locationComputers" Association="Self.fk_locationComputers">
+      <End Role="locations" EntitySet="locations" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_locationDevices" Association="Self.fk_locationDevices">
+      <End Role="locations" EntitySet="locations" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_locationUsers" Association="Self.fk_locationUsers">
+      <End Role="locations" EntitySet="locations" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_modelComputers" Association="Self.fk_modelComputers">
+      <End Role="models" EntitySet="models" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_modelDevices" Association="Self.fk_modelDevices">
+      <End Role="models" EntitySet="models" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_proyectAssignments" Association="Self.fk_proyectAssignments">
+      <End Role="proyects" EntitySet="proyects" />
+      <End Role="assignments" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_proyectComputers" Association="Self.fk_proyectComputers">
+      <End Role="proyects" EntitySet="proyects" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_proyectDevices" Association="Self.fk_proyectDevices">
+      <End Role="proyects" EntitySet="proyects" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_proyectOpSys" Association="Self.fk_proyectOpSys">
+      <End Role="operatingSystems" EntitySet="operatingSystems" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_proyectProcessors" Association="Self.fk_proyectProcessors">
+      <End Role="processors" EntitySet="processors" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_responsibleAAssignments" Association="Self.fk_responsibleAAssignments">
+      <End Role="users" EntitySet="users" />
+      <End Role="assignments" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_responsibleComputers" Association="Self.fk_responsibleComputers">
+      <End Role="appUsers" EntitySet="appUsers" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_responsibleDevices" Association="Self.fk_responsibleDevices">
+      <End Role="appUsers" EntitySet="appUsers" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_responsibleRAssignments" Association="Self.fk_responsibleRAssignments">
+      <End Role="users" EntitySet="users" />
+      <End Role="assignments" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_stateAssignments" Association="Self.fk_stateAssignments">
+      <End Role="states" EntitySet="states" />
+      <End Role="assignments" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_stateComputers" Association="Self.fk_stateComputers">
+      <End Role="states" EntitySet="states" />
+      <End Role="computers" EntitySet="computers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_stateDevices" Association="Self.fk_stateDevices">
+      <End Role="states" EntitySet="states" />
+      <End Role="devices" EntitySet="devices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_userAssignments" Association="Self.fk_userAssignments">
+      <End Role="users" EntitySet="users" />
+      <End Role="assignments" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_userTypeUsers" Association="Self.fk_userTypeUsers">
+      <End Role="userTypes" EntitySet="userTypes" />
+      <End Role="appUsers" EntitySet="appUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
