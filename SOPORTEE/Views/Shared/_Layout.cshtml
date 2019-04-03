@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/css/StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,26 +27,45 @@
                     <li>@Html.ActionLink("Dispositives", "Contact", "Dispositives")</li>
                     <li>@Html.ActionLink("Check-List", "Contact", "Check")</li>
                     <li>@Html.ActionLink("Licenses", "Contact", "Licenses")</li>
-                    
+
                     <li data-toggle="collapse" data-target="#demo"><a href="#">Configuration</a></li>
 
                 </ul>
-                <ul></ul>
+
+
+
+                <br>
+                <br>
+                
                 <div id="demo" class="collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Gestion Usuarios", "", "")</li>
-                        <li>@Html.ActionLink("Gestion Dispositivos", "", "")</li>
-                        <li>@Html.ActionLink("Gestion General", "", "")</li>
-                        
 
 
-                    </ul>
+                    <div class="Mydropdown">
+                        <button class="Mydropbtn">
+                            Gestion de Dispositivos
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="Mydropdown-content">
+                            <a href="#">HDD</a>
+
+                        </div>
+                    </div>
+                    <div class="Mydropdown">
+                        <button class="Mydropbtn">
+                            Gestion de Usuarios
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="Mydropdown-content">
+                            <a href="#">Degrees</a>
+
+                        </div>
+                    </div>
                 </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
 
             </div>
     </div>
