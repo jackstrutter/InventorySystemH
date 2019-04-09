@@ -33,10 +33,21 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Editar", new { id=item.id }) |
-            @Html.ActionLink("Details", "Detalles", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Eliminar", new { id=item.id })
+          
+            @Html.ActionLink("Delete", "Eliminar", new { id=item.id }, new { @class = "aElimina" })
         </td>
     </tr>
 }
 
 </table>
+
+
+@section scripts{ <!--no jalo esto-->
+    <script>
+        $(".aElimina").click(function (event) {   //al hacerle click pregunta
+            if (confirm('Estás seguro de eliminar?') == false) {
+                    event.preventDefault();
+                }
+            });
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SOPORTEE.Models.operatingSystems>
+
+@{
+    ViewBag.Title = "Index_SO";
+}
+
+<h2>Index SO</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Agregar_SO")
+</p>
+
+<form asp-controller="SO" asp-action="Index_SO">
+    <p>
+        Search for name: <input type="text" name="buscar">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OperatingSystem)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OperatingSystem)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Editar_SO", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Borrar_SO", new { id = item.id }, new { @class = "aElimina" })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@section scripts{
+    <script>
+            $(".aElimina").click(function (event) {   //al hacerle click pregunta
+                if (!confirm('Estás seguro de eliminar')) {
+                    event.preventDefault();
+                }
+            });
+    </script>
+}

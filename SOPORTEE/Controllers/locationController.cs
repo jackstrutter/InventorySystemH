@@ -7,39 +7,39 @@ using System.Web.Mvc;
 
 namespace SOPORTEE.Controllers
 {
-    public class DegreesController : Controller
+    public class locationController : Controller
     {
-        // GET: Degrees
-        public ActionResult Index2(string buscar)
+        // GET: location
+        public ActionResult Index(string buscar)
         {
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    IEnumerable<degrees> data = db.degrees.ToList();
+                    IEnumerable<locations> data = db.locations.ToList();
                     if (!String.IsNullOrEmpty(buscar))
                     {
-                        data = data.Where(s => s.degrees1.Contains(buscar));
+                        data = data.Where(s => s.location.Contains(buscar));
                     }
                     return View(data.ToList());
                 }
             }
-
             catch (Exception)
             {
                 throw;
             }
-        }
+         }
 
-        public ActionResult Agregar()
+
+
+        public ActionResult Agregar_location()
         {
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Agregar(degrees a)
+        public ActionResult Agregar_location(locations a)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -48,9 +48,9 @@ namespace SOPORTEE.Controllers
             {
                 using (var db = new inventoryContext())
                 {
-                    db.degrees.Add(a);
+                    db.locations.Add(a);
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index");
                 }
             }
 
@@ -62,15 +62,15 @@ namespace SOPORTEE.Controllers
         }
 
 
-        public ActionResult Editar(int id)
+        public ActionResult Editar_location(int id)
         {
 
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    degrees deg = db.degrees.Find(id);
-                    return View(deg);
+                   locations lo = db.locations.Find(id);
+                    return View(lo);
                 }
             }
             catch (Exception ex)
@@ -80,9 +80,10 @@ namespace SOPORTEE.Controllers
 
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(degrees a)
+        public ActionResult Editar_location(locations a)
         {
             try
             {
@@ -92,32 +93,33 @@ namespace SOPORTEE.Controllers
 
                 using (var db = new inventoryContext())
                 {
-                    //para actualizar primero encuentro al alumno
-                    degrees deg = db.degrees.Find(a.id); //al es el alumno encontrado
-                    deg.degrees1 = a.degrees1;
+                    //para actualizar primero encuentral alumno
+                    locations lo = db.locations.Find(a.id);
+                    lo.location = a.location;
+
                     //agregar ultima actualizacion
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception ex)
             {
                 throw;
             }
+
         }
 
-
-        public ActionResult Eliminar(int id)
+        public ActionResult Borrar_location(int id)
         {
             try
             {
                 using (var db = new inventoryContext())
                 {
                     //para actualizar primero encuentro al alumno
-                    degrees deg = db.degrees.Find(id); //al es el alumno encontrado
-                    db.degrees.Remove(deg);
+                    locations lo = db.locations.Find(id); //al es el alumno encontrado
+                    db.locations.Remove(lo);
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception ex)
@@ -125,6 +127,7 @@ namespace SOPORTEE.Controllers
                 throw;
             }
         }
-    }
 
+
+    }
 }

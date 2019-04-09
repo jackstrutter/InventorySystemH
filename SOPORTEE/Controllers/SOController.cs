@@ -7,39 +7,39 @@ using System.Web.Mvc;
 
 namespace SOPORTEE.Controllers
 {
-    public class DegreesController : Controller
+    public class SOController : Controller
     {
-        // GET: Degrees
-        public ActionResult Index2(string buscar)
+        // GET: SO
+        public ActionResult Index_SO(string buscar)
         {
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    IEnumerable<degrees> data = db.degrees.ToList();
+                    IEnumerable<operatingSystems> data = db.operatingSystems.ToList();
                     if (!String.IsNullOrEmpty(buscar))
                     {
-                        data = data.Where(s => s.degrees1.Contains(buscar));
+                        data = data.Where(s => s.OperatingSystem.Contains(buscar));
                     }
                     return View(data.ToList());
                 }
             }
-
             catch (Exception)
             {
                 throw;
             }
+           
         }
 
-        public ActionResult Agregar()
+        public ActionResult Agregar_SO() //este seria el get y aqui es donde creamos la vista
         {
+
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Agregar(degrees a)
+        public ActionResult Agregar_SO(operatingSystems a)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -48,9 +48,10 @@ namespace SOPORTEE.Controllers
             {
                 using (var db = new inventoryContext())
                 {
-                    db.degrees.Add(a);
+                    db.operatingSystems.Add(a);
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index_SO");
+
                 }
             }
 
@@ -62,15 +63,16 @@ namespace SOPORTEE.Controllers
         }
 
 
-        public ActionResult Editar(int id)
+
+        public ActionResult Editar_SO(int id)
         {
 
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    degrees deg = db.degrees.Find(id);
-                    return View(deg);
+                    operatingSystems so= db.operatingSystems.Find(id);
+                    return View(so);
                 }
             }
             catch (Exception ex)
@@ -82,22 +84,21 @@ namespace SOPORTEE.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(degrees a)
+        public ActionResult Editar_SO(operatingSystems a)
         {
             try
             {
 
-                if (!ModelState.IsValid)     // o sea si los datos estan bien, si numero es numero y asi
-                    return View();//si el modelo es validor retona la vista
+                if (!ModelState.IsValid)
+                    return View();
 
                 using (var db = new inventoryContext())
                 {
-                    //para actualizar primero encuentro al alumno
-                    degrees deg = db.degrees.Find(a.id); //al es el alumno encontrado
-                    deg.degrees1 = a.degrees1;
+                    operatingSystems so = db.operatingSystems.Find(a.id);
+                    so.OperatingSystem = a.OperatingSystem;
                     //agregar ultima actualizacion
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index_SO");
                 }
             }
             catch (Exception ex)
@@ -107,17 +108,18 @@ namespace SOPORTEE.Controllers
         }
 
 
-        public ActionResult Eliminar(int id)
+
+
+        public ActionResult Borrar_SO(int id)
         {
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    //para actualizar primero encuentro al alumno
-                    degrees deg = db.degrees.Find(id); //al es el alumno encontrado
-                    db.degrees.Remove(deg);
+                    operatingSystems so = db.operatingSystems.Find(id); //al es el alumno encontrado
+                    db.operatingSystems.Remove(so);
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index_SO");
                 }
             }
             catch (Exception ex)
@@ -125,6 +127,8 @@ namespace SOPORTEE.Controllers
                 throw;
             }
         }
-    }
 
+
+
+    }
 }

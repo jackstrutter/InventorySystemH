@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SOPORTEE.Models.deviceTypes>
+
+@{
+    ViewBag.Title = "Index_DeviceTypes";
+  
+}
+
+<h2>Device Types</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Agregar_DeviceTypes")
+</p>
+
+<form asp-controller="DeviceTypes" asp-action="Index_DeviceTypes">
+    <p>
+        search for name: <input type="text" name="buscar">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Types
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Editar_DeviceType", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Borrar_DeviceType", new { id = item.id }, new { @class = "aElimina" })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+@section scripts{
+    <script>
+            $(".aElimina").click(function (event) {   //al hacerle click pregunta
+                if (!confirm('Estás seguro de eliminar')) {
+                    event.preventDefault();
+                }
+            });
+    </script>
+}

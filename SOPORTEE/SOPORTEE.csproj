@@ -151,7 +151,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\DegreesController.cs" />
+    <Compile Include="Controllers\DeviceTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\locationController.cs" />
+    <Compile Include="Controllers\ProyectsController.cs" />
+    <Compile Include="Controllers\SOController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +184,7 @@
     <Compile Include="Models\deviceTypes.cs">
       <DependentUpon>ModeloInventario.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocationClase.cs" />
     <Compile Include="Models\locations.cs">
       <DependentUpon>ModeloInventario.tt</DependentUpon>
     </Compile>
@@ -281,6 +286,18 @@
     <Content Include="Views\Degrees\Index2.cshtml" />
     <Content Include="Views\Degrees\Agregar.cshtml" />
     <Content Include="Views\Degrees\Editar.cshtml" />
+    <Content Include="Views\location\Index.cshtml" />
+    <Content Include="Views\location\Agregar_location.cshtml" />
+    <Content Include="Views\location\Editar_location.cshtml" />
+    <Content Include="Views\DeviceTypes\Index_DeviceTypes.cshtml" />
+    <Content Include="Views\DeviceTypes\Agregar_DeviceTypes.cshtml" />
+    <Content Include="Views\DeviceTypes\Editar_DeviceType.cshtml" />
+    <Content Include="Views\Proyects\Index_Proyects.cshtml" />
+    <Content Include="Views\Proyects\Agregar_Proyects.cshtml" />
+    <Content Include="Views\Proyects\Editar_Proyects.cshtml" />
+    <Content Include="Views\SO\Index_SO.cshtml" />
+    <Content Include="Views\SO\Agregar_SO.cshtml" />
+    <Content Include="Views\SO\Editar_SO.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

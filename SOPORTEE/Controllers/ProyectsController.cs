@@ -7,50 +7,52 @@ using System.Web.Mvc;
 
 namespace SOPORTEE.Controllers
 {
-    public class DegreesController : Controller
+    public class ProyectsController : Controller
     {
-        // GET: Degrees
-        public ActionResult Index2(string buscar)
+        // GET: Proyects
+        public ActionResult Index_Proyects(string buscar)
         {
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    IEnumerable<degrees> data = db.degrees.ToList();
+                    IEnumerable<proyects> data = db.proyects.ToList();
                     if (!String.IsNullOrEmpty(buscar))
                     {
-                        data = data.Where(s => s.degrees1.Contains(buscar));
+                        data = data.Where(s => s.proyect.Contains(buscar));
                     }
                     return View(data.ToList());
                 }
             }
-
             catch (Exception)
             {
                 throw;
             }
         }
 
-        public ActionResult Agregar()
+
+        public ActionResult Agregar_Proyects() //este seria el get y aqui es donde creamos la vista
         {
+
             return View();
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Agregar(degrees a)
+        public ActionResult Agregar_Proyects(proyects a) 
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid)     
                 return View();
 
             try
             {
-                using (var db = new inventoryContext())
-                {
-                    db.degrees.Add(a);
-                    db.SaveChanges();
-                    return RedirectToAction("Index2");
+                using (var db = new inventoryContext()) 
+                {        
+                    db.proyects.Add(a); 
+                    db.SaveChanges(); 
+                    return RedirectToAction("Index_Proyects"); 
+
                 }
             }
 
@@ -62,15 +64,15 @@ namespace SOPORTEE.Controllers
         }
 
 
-        public ActionResult Editar(int id)
+        public ActionResult Editar_Proyects(int id)
         {
 
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    degrees deg = db.degrees.Find(id);
-                    return View(deg);
+                    proyects pro = db.proyects.Find(id);
+                    return View(pro);
                 }
             }
             catch (Exception ex)
@@ -82,22 +84,21 @@ namespace SOPORTEE.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(degrees a)
+        public ActionResult Editar_Proyects(proyects a)
         {
             try
             {
 
-                if (!ModelState.IsValid)     // o sea si los datos estan bien, si numero es numero y asi
-                    return View();//si el modelo es validor retona la vista
+                if (!ModelState.IsValid)   
+                    return View();
 
                 using (var db = new inventoryContext())
                 {
-                    //para actualizar primero encuentro al alumno
-                    degrees deg = db.degrees.Find(a.id); //al es el alumno encontrado
-                    deg.degrees1 = a.degrees1;
+                    proyects pro = db.proyects.Find(a.id); 
+                    pro.proyect = a.proyect;
                     //agregar ultima actualizacion
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index_Proyects");
                 }
             }
             catch (Exception ex)
@@ -107,17 +108,19 @@ namespace SOPORTEE.Controllers
         }
 
 
-        public ActionResult Eliminar(int id)
+
+
+
+        public ActionResult Borrar_Proyects(int id)
         {
             try
             {
                 using (var db = new inventoryContext())
                 {
-                    //para actualizar primero encuentro al alumno
-                    degrees deg = db.degrees.Find(id); //al es el alumno encontrado
-                    db.degrees.Remove(deg);
+                    proyects lo = db.proyects.Find(id); //al es el alumno encontrado
+                    db.proyects.Remove(lo);
                     db.SaveChanges();
-                    return RedirectToAction("Index2");
+                    return RedirectToAction("Index_Proyects");
                 }
             }
             catch (Exception ex)
@@ -125,6 +128,6 @@ namespace SOPORTEE.Controllers
                 throw;
             }
         }
-    }
 
+    }
 }

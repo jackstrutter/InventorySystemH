@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SOPORTEE.Models.locations>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Locations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Agregar_location")
+</p>
+
+<form asp-controller="location" asp-action="Index">
+    <p>
+        search for name: <input type="text" name="buscar">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+           Location
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Editar_location", new { id=item.id }) 
+            @Html.ActionLink("Delete", "Borrar_location", new { id=item.id }, new {@class = "aElimina" })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@section scripts{
+    <script>
+            $(".aElimina").click(function (event) {   //al hacerle click pregunta
+                if (!confirm('Estás seguro de eliminar')) {
+                    event.preventDefault();
+                }
+            });
+    </script>
+}
