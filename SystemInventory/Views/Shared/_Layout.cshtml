@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <link rel="stylesheet" href="~/Content/StyleSheet.css" type="text/css" media="screen" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="Mynavbar">
+            <a> @Html.ActionLink("Inventory System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a> 
+            <div class="subnav">
+                <button class="subnavbtn">Asignaciones <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="#company">Nueva Asignacion</a>
+                    <a href="#team">Ver Asignaciones</a>
+
+                </div>
+            </div>
+            <div class="subnav">
+                <button class="subnavbtn">Empleados <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="#bring">Nuevo Empleado</a>
+                    <a href="#deliver">Ver Empleados</a>
+
+                </div>
+            </div>
+            <div class="subnav">
+                <button class="subnavbtn">Dispositivos <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="#bring">Nuevo Dispositivo</a>
+                    <a href="#deliver">Ver Dispositivos</a>
+
+                </div>
+            </div>
+            <div class="subnav">
+                <button class="subnavbtn">Configuración <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+
+                    <div class="dropdown">
+                        <span>Usuarios</span>
+                        <div class="dropdown-content">
+                            <a href="#link2">Titulos</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <span>Dispositivos</span>
+                        <div class="dropdown-content">
+                            <a>@Html.ActionLink("Marcas", "Index", "Brand")</a>
+                            <a>@Html.ActionLink("Modelos", "Index", "Model")</a>
+                            <a href="#link2">Sistemas Operativos</a>
+                            <a href="#link2">Procesadores</a>
+                            <a href="#link2">Tipos de Dispositivos</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <span>General</span>
+                        <div class="dropdown-content">
+                            <a href="#link2">Proyectos</a>
+                            <a href="#link2">Estatus GLPI</a>
+                            <a href="#link2">Sedes</a>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+     </div>
+
+        <div class="container Mybody-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
